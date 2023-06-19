@@ -1,4 +1,6 @@
+import { emotionCache } from '@/emotionCache';
 import '@/styles/globals.css';
+import { MantineProvider } from '@mantine/core';
 import type { NextPage } from 'next';
 import type { AppProps, AppType } from 'next/app';
 import Head from 'next/head';
@@ -32,7 +34,14 @@ const _App: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
           href="favicon.ico"
         />
       </Head>
-      {getLayout(<Component {...pageProps} />)}
+      <MantineProvider
+        theme={{ colorScheme: 'light' }}
+        emotionCache={emotionCache}
+        withNormalizeCSS
+        withGlobalStyles
+      >
+        {getLayout(<Component {...pageProps} />)}
+      </MantineProvider>
     </>
   );
 };

@@ -5,4 +5,6 @@ module.exports = {
   endOfLine: 'auto',
   singleAttributePerLine: true,
   plugins: ['prettier-plugin-tailwindcss'],
+  tailwindAttributes: ['classNames'],
+  tailwindFunctions: ['clsx'],
 };
